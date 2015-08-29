@@ -78,6 +78,8 @@ Schema
 
 Current schema in schemaless MongoDB is:
 
+::
+
     {
         '_id': session identifier,
         'created': float value of creation time
@@ -99,7 +101,10 @@ But don't forget in that case you should remove all session documents before cha
 Mass Logout
 -----------
 
+::
+
     db.session.delete_many({})
+
 
 Muahahahahah.
 
