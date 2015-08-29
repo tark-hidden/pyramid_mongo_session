@@ -4,7 +4,7 @@ Translation and bug fix in progress.
 
 MongoDB-based session factory. You can try https://pypi.python.org/pypi/mongodb-beaker2 which released in 2012... I couldn't, I gave up.
 
-To be honest, it is a modified version of pyramid.session.BaseCookieSessionFactory with the same behavior.
+To be honest, it is a modified version of ``pyramid.session.BaseCookieSessionFactory`` with the same behavior.
 
 Installation
 ------------
@@ -21,8 +21,8 @@ or::
 Dependencies
 ------------
 
-MongoDB team have decided to change an API. Now here is `update_one` and `replace_one` instead of cute `update` etc.
-I don't want to see `BOOO!! You are still using a deprecated function! LOOOSEEEER!`, and... you know... You don't want this too. Yep. MongoDB 3.0! Pymongo 3.0.3! Cutting edge of progress.
+MongoDB team have decided to change an API. Now here is ``update_one`` and ``replace_one`` instead of cute ``update`` etc.
+I don't want to see "BOOO!! You are still using a deprecated function! LOOOSEEEER!" in uwsgi log file, and... you know... You don't want this too. Yep. MongoDB 3.0! Pymongo 3.0.3! Cutting edge of progress.
 
 
 Usage
@@ -44,9 +44,9 @@ Usage
         set_on_exception=True,
     )
 
-`collection` means pymongo.MongoClient collection. Not the string but collection itself. `skip_pickle` is chosen to be True.
+``collection`` means ``pymongo.MongoClient collection``. Not the string but collection itself. ``skip_pickle`` is chosen to be True.
 
-Yep, fully synchronous way. Do you believe in async pyramid? I don't. MongoSessionFactory is using common db-connection.
+Yep, fully synchronous way. Do you believe in async pyramid? I don't. ``MongoSessionFactory`` is using common db-connection.
 
 Default values are very useful, I swear (again).
 
@@ -93,8 +93,8 @@ You can sometimes cleanup the database by removing too old documents... I think.
 Important notes
 ---------------
 
-`skip_pickle` ENABLED BY DEFAULT. That means you can store in session only primitive types of the objects - strings, lists, numbers (int and float), dictionaries with primitive types and with string keys etc.
-Flashing messages, data like {'user': 'Tark', 'god': False} etc. And you save some CPU time! If you want to store something more implicitly like python methods or SQLA objects, you need to change this to False.
+``skip_pickle`` ENABLED BY DEFAULT. That means you can store in session only primitive types of the objects: strings, lists, numbers (int and float), dictionaries with primitive types and with string keys etc.
+Flashing messages, data like {'user': 'Tark', 'password': 'love'} etc. And you save some CPU time! If you want to store something more implicitly like python methods or SQLA objects, you need to change this to False.
 But don't forget in that case you should remove all session documents before changing. But you know, it is a session... You can kill them all. It is not a problem at all, you know.
 
 
@@ -117,6 +117,6 @@ Testing
     $ python setup.py test
 
 
-`mongo_session_test` db will be created. Sorry, I don't know how to remove it after all.
+``mongo_session_test`` db will be created. Sorry, I don't know how to remove it after all.
 
 Any help to proving this readme file (and package) would be highly appreciated.
