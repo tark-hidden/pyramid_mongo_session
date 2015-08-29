@@ -56,7 +56,7 @@ Default values are very useful, I swear (again).
     # encoding: utf-8
 
     from pyramid.config import Configurator
-    from pyramid_file_session import FileSessionFactory
+    from pyramid_mongo_session import MongoSessionFactory
     ...
 
     def main(global_config, **settings):
@@ -87,7 +87,7 @@ Current schema in schemaless MongoDB is:
         'value': value of the session object itself
     }
 
-You can sometimes cleanup the database by removing too old documents... I think. But indexes is your business. _id have primary index by default.
+You can sometimes cleanup the database by removing too old documents... I think. But indexes is your business. _id have primary index by default, it is fast as hell.
 
 
 Important notes
