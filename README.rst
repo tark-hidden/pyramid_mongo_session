@@ -22,7 +22,7 @@ Dependencies
 ------------
 
 MongoDB team have decided to change an API. Now here is ``update_one`` and ``replace_one`` instead of cute ``update`` etc.
-I don't want to see "BOOO!! You are still using a deprecated function! LOOOSEEEER!" in uwsgi log file, and... you know... You don't want this too. Yep. MongoDB 3.0! Pymongo 3.0.3! Cutting edge of progress.
+I don't want to see "You are still using a deprecated function!", and... you know... you don't want this too. Yep. MongoDB 3.x! Pymongo 3.0.3! Cutting edge of progress.
 
 
 Usage
@@ -39,7 +39,7 @@ Usage
         domain=None,
         secure=False,
         httponly=False,
-        timeout=1200,
+        timeout=3600,
         reissue_time=0,
         set_on_exception=True,
     )
@@ -48,7 +48,7 @@ Usage
 
 Yep, fully synchronous way. Do you believe in async pyramid? I don't. ``MongoSessionFactory`` is using common db-connection.
 
-Default values are very useful, I swear (again).
+Default values are very useful, I swear (again). Session lifetime is one hour (by default).
 
 
 .. code-block:: python
